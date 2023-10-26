@@ -1,13 +1,13 @@
-from database.music_table import create_music_table, load_data
-from utilities.artist_image_util import upload_images
+from database import music_table
+from utilities import artist_image_util
 from utilities.table_utils import check_table_status
 
 
 def setup():
-    if create_music_table():
-        if check_table_status('music'):
-            if load_data():
-                result = upload_images()
+    if music_table.create_music_table():
+        if check_table_status(music_table.table_name):
+            if music_table.load_data():
+                result = artist_image_util.upload_images()
                 if result:
                     return True
                 else:
