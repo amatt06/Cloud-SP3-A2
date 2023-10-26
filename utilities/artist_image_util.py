@@ -21,6 +21,8 @@ def upload_images():
         data = load_music_data()
         songs = data.get('songs', [])
 
+        print("Uploading Images...")
+
         for song in songs:
             image_url = song.get('img_url')
             artist_name = song["artist"]
@@ -29,7 +31,6 @@ def upload_images():
                 s3_object_key = f'artist_images/{artist_name}.jpg'
 
                 if not image_exists(s3_object_key):
-                    print("Uploading Images...")
                     try:
                         response = requests.get(image_url)
                         image_data = response.content
