@@ -2,6 +2,7 @@ import boto3
 from schemas.music_table_schema import table_schema, key_schema
 from data.data_loader import load_music_data
 
+session = boto3.Session(region_name='ap-southeast-2')
 dynamodb = boto3.resource('dynamodb')
 
 table_name = 'music'
