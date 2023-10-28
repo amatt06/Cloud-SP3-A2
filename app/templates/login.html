@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="eng">
-<head>
-    <title>Login Page</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
 <h2>Login</h2>
 <form action="/login" method="post">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" required><br><br>
+    <label for="email">Email: <br></label>
+    <input style="padding-top: 5px" type="text" id="email" name="email" required><br><br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <label for="password">Password: <br></label>
+    <input style="padding-top: 5px" type="password" id="password" name="password" required><br><br>
 
     <input type="submit" value="Login">
 </form>
-<p>Or <a href="/register">Register here</a></p>
-</body>
-</html>
+<a href="/register">Register here</a>
+{% endblock %}

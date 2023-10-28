@@ -1,0 +1,64 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main h2 {
+    text-align: center;
+}
+
+.navbar {
+    background-color: #3498db;
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+.navbar a {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.navbar a:hover {
+    border-color: white;
+}
+
+main {
+    justify-content: center;
+}
+
+.container {
+    justify-content: center;
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+form {
+    text-align: left;
+    max-width: fit-content;
+    margin: 5px;
+}
+
+a, input[type="submit"] {
+    display: block; /* Make them block-level elements for centering */
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Center horizontally */
+    padding: 10px; /* Add padding */
+}
+
+h1 {
+    margin: 10px;
+    padding-left: 20px;
+}
