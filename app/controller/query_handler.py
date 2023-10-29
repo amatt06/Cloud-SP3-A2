@@ -49,6 +49,9 @@ def handle_query():
         if not items:
             return redirect(url_for('main', message='No result is retrieved. Please query again'))
 
+        for item in items:
+            item['img_url'] = item.get('img_url', {}).get('S', '')
+
         print(items)
         session['query_results'] = items
         return redirect(url_for('main', music_items=items))
