@@ -8,7 +8,17 @@ app = Flask(__name__, template_folder="app/templates", static_folder="app/static
 
 @app.route('/')
 def login():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['POST'])
+def post_login():
     return handle_login()
+
+
+@app.route('/main')
+def main():
+    return render_template('main.html')
 
 
 @app.route('/register')

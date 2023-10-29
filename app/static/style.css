@@ -62,3 +62,7 @@ h1 {
     margin: 10px;
     padding-left: 20px;
 }
+
+.error-message {
+    color: red;
+}
