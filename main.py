@@ -24,7 +24,9 @@ def main():
     user_name = session.get('user_name')
     message = request.args.get('message', None)
     music_items = request.args.get('music_items', None)
-    return render_template('main.html', user_name=user_name, message=message, music_items=music_items)
+    query_results = session.get('query_results', None)
+    return render_template('main.html', user_name=user_name, message=message, music_items=music_items,
+                           query_results=query_results)
 
 
 @app.route('/query', methods=['POST'])

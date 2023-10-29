@@ -27,19 +27,26 @@
         <input type="submit" value="Query">
     </form>
 
-    <div class="music-area">
-        {% if music_items %}
-        <ul>
-            {% for item in music_items %}
-            <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
-
-
     {% if message %}
     <div class="error-message">{{ message }}</div>
+    {% endif %}
+
+    {% if query_results %}
+    <div class="query-results">
+        <ul>
+            {% for result in query_results %}
+            <li>
+                <strong>Title:</strong> {{ result.title.S }}<br>
+                <strong>Artist:</strong> {{ result.artist.S }}<br>
+                <strong>Year:</strong> {{ result.year.S }}<br>
+                <img src="{{ result.image_url }}" alt="Artist Image">
+                <button class="subscribe-button" data-title="{{ result.title }}" data-artist="{{ result.artist }}">
+                    Subscribe
+                </button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
     {% endif %}
 </div>
 

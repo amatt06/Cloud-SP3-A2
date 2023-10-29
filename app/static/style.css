@@ -94,3 +94,7 @@ h1 {
     max-height: fit-content;
 }
 
+li {
+    margin-bottom: 20px;
+}
+

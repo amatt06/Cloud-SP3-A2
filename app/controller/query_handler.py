@@ -1,11 +1,13 @@
 import boto3
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, session
 
 
 def handle_query():
     title = request.form.get('title')
     year = request.form.get('year')
     artist = request.form.get('artist')
+
+    session.pop('query_results', None)
 
     dynamodb = boto3.client('dynamodb')
 
@@ -48,6 +50,7 @@ def handle_query():
             return redirect(url_for('main', message='No result is retrieved. Please query again'))
 
         print(items)
+        session['query_results'] = items
         return redirect(url_for('main', music_items=items))
     else:
         return redirect(url_for('main', message='No result is retrieved. Please query again'))
