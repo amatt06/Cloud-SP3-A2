@@ -6,12 +6,12 @@ from app.controller.registration_handler import handle_registration
 app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def login():
     return render_template('login.html')
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/handle_login', methods=['POST'])
 def post_login():
     return handle_login()
 
@@ -21,9 +21,14 @@ def main():
     return render_template('main.html')
 
 
-@app.route('/register')
-def register():
+@app.route('/handle_register', methods=['POST'])
+def post_register():
     return handle_registration()
+
+
+@app.route('/register', methods=['GET'])
+def register():
+    return render_template('register.html')
 
 
 if __name__ == '__main__':

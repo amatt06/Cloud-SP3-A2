@@ -48,14 +48,14 @@ main {
 form {
     text-align: left;
     max-width: fit-content;
-    margin: 5px;
+    margin: 20px;
 }
 
 a, input[type="submit"] {
-    display: block; /* Make them block-level elements for centering */
-    text-align: center; /* Center the text */
-    margin: 0 auto; /* Center horizontally */
-    padding: 10px; /* Add padding */
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 h1 {
@@ -65,4 +65,7 @@ h1 {
 
 .error-message {
     color: red;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

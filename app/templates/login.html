@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>Login</h2>
-<form action="/login" method="post">
+<form action="/handle_login" method="post">
     <label for="email">Email: <br></label>
     <input style="padding-top: 5px" type="text" id="email" name="email" required><br><br>
 
@@ -14,9 +14,4 @@
     <input type="submit" value="Login">
 </form>
 <a href="/register">Register here</a>
-
-{% if message %}
-<div class="error-message">{{ message }}</div>
-{% endif %}
-
 {% endblock %}

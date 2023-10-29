@@ -1,3 +1,4 @@
+import boto3
 from flask import request, redirect, url_for, render_template
 
 
@@ -7,13 +8,25 @@ def handle_registration():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        user = User.query.filter_by(email=email).first()
-        if user:
-            return render_template('register.html', message='The email already exists.')
+        dynamodb = boto3.client('dynamodb')
 
-        new_user = User(email=email, username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
+        response = dynamodb.query(
+            TableName='login',
+            KeyConditionExpression='email = :email',
+            ExpressionAttributeValues={':email': {'S': email}}
+        )
+
+        if response.get('Count', 0) > 0:
+            return render_template('register.html', message='The Email Already Exists.')
+
+        dynamodb.put_item(
+            TableName='login',
+            Item={
+                'email': {'S': email},
+                'username': {'S': username},
+                'password': {'S': password}
+            }
+        )
 
         return redirect(url_for('login'))
 
