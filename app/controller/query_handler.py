@@ -1,5 +1,5 @@
 import boto3
-from flask import request, render_template
+from flask import request, redirect, url_for
 
 
 def handle_query():
@@ -45,9 +45,9 @@ def handle_query():
         items = response.get('Items', [])
 
         if not items:
-            return render_template('main.html', message='No result is retrieved. Please query again')
+            return redirect(url_for('main', message='No result is retrieved. Please query again'))
 
         print(items)
-        return render_template('main.html', music_items=items)
+        return redirect(url_for('main', music_items=items))
     else:
-        return render_template('main.html', message='No result is retrieved. Please query again')
+        return redirect(url_for('main', message='No result is retrieved. Please query again'))

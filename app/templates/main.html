@@ -27,10 +27,20 @@
         <input type="submit" value="Query">
     </form>
 
+    <div class="music-area">
+        {% if music_items %}
+        <ul>
+            {% for item in music_items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+
     {% if message %}
     <div class="error-message">{{ message }}</div>
     {% endif %}
-
 </div>
 
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, request
 import os
 from utilities.setup import setup_data
 from app.controller.login_handler import handle_login
@@ -22,7 +22,9 @@ def post_login():
 @app.route('/main')
 def main():
     user_name = session.get('user_name')
-    return render_template('main.html', user_name=user_name)
+    message = request.args.get('message', None)
+    music_items = request.args.get('music_items', None)
+    return render_template('main.html', user_name=user_name, message=message, music_items=music_items)
 
 
 @app.route('/query', methods=['POST'])
