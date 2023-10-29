@@ -12,6 +12,22 @@
     </div>
 
 </div>
+<div class="query-area">
+    <p id="query_area_banner">Query</p>
+    <form action="/query" method="post">
+        <label for="title">Title: <br></label>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="year">Year: <br></label>
+        <input type="text" id="year" name="year"><br>
+
+        <label for="artist">Artist: <br></label>
+        <input type="text" id="artist" name="artist"><br>
+
+        <input type="submit" value="Query">
+    </form>
+
+</div>
 
 
 {% endblock %}

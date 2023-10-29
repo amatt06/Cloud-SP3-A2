@@ -3,6 +3,7 @@ import os
 from utilities.setup import setup_data
 from app.controller.login_handler import handle_login
 from app.controller.registration_handler import handle_registration
+from app.controller.query_handler import handle_query
 
 app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
 app.secret_key = os.urandom(24)
@@ -22,6 +23,11 @@ def post_login():
 def main():
     user_name = session.get('user_name')
     return render_template('main.html', user_name=user_name)
+
+
+@app.route('/query', methods=['POST'])
+def post_query():
+    return handle_query()
 
 
 @app.route('/handle_register', methods=['POST'])
