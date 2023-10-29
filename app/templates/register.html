@@ -15,5 +15,9 @@
     <input type="password" id="password" name="password" required><br><br>
 
     <input type="submit" value="Register">
+
+    {% if message %}
+    <div class="error-message">{{ message }}</div>
+    {% endif %}
 </form>
 {% endblock %}
