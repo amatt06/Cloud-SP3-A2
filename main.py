@@ -1,9 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+import os
 from utilities.setup import setup_data
 from app.controller.login_handler import handle_login
 from app.controller.registration_handler import handle_registration
 
 app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
+app.secret_key = os.urandom(24)
 
 
 @app.route('/', methods=['GET'])
@@ -18,7 +20,8 @@ def post_login():
 
 @app.route('/main')
 def main():
-    return render_template('main.html')
+    user_name = session.get('user_name')
+    return render_template('main.html', user_name=user_name)
 
 
 @app.route('/handle_register', methods=['POST'])

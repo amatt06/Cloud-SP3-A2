@@ -5,7 +5,7 @@ from flask import request, redirect, url_for, render_template
 def handle_registration():
     if request.method == 'POST':
         email = request.form.get('email')
-        username = request.form.get('username')
+        username = request.form.get('user_name')
         password = request.form.get('password')
 
         dynamodb = boto3.client('dynamodb')
@@ -23,7 +23,7 @@ def handle_registration():
             TableName='login',
             Item={
                 'email': {'S': email},
-                'username': {'S': username},
+                'user_name': {'S': username},
                 'password': {'S': password}
             }
         )

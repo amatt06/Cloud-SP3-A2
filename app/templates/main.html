@@ -3,6 +3,15 @@
 {% block title %}Main Page{% endblock %}
 
 {% block content %}
-<h2>Main Page</h2>
+
+<div class="user-area">
+    <div id="user_banner">
+        {% if user_name %}
+        <p id="session_user_name">User - {{ user_name }}</p>
+        {% endif %}
+    </div>
+
+</div>
+
 
 {% endblock %}
