@@ -46,6 +46,6 @@ def register():
 
 if __name__ == '__main__':
     if setup_data():
-        app.run(debug=True)
+        app.run()
     else:
         print("Error! Setup Unsuccessful")
