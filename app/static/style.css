@@ -9,7 +9,7 @@ body {
 }
 
 main h2 {
-    text-align: center;
+    text-align: left;
 }
 
 .navbar {
@@ -63,6 +63,10 @@ a, input[type="submit"] {
     text-align: center;
     margin: 0 auto;
     padding: 10px;
+}
+
+a {
+    margin-bottom: 20px;
 }
 
 h1 {
